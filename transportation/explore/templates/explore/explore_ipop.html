@@ -1,0 +1,29 @@
+{% extends 'explore/explore_base.html' %}
+{% block explore_content %}
+
+<h1>Enter the exact constraints to get better results:</h1><br>
+
+<form id="in" action="{% url 'explore:result' %}" method="POST">
+
+  {% csrf_token %}
+  <div class="form-group row">
+    Gender: <input type="text" class="form-control" name="gender" placeholder="Options: Male,Female,Other" required><br>
+    Age: <input type="number" class="form-control" step="any" name="age" placeholder="Options: Positive values" required><br>
+    Hypertension: <input type="number" class="form-control" step="any" name="hypertension" placeholder="Options: 0 or 1" required><br>
+    heart Disease: <input type="number" class="form-control" step="any" name="heart_disease" placeholder="Options: 0 or 1" required><br>
+    Ever-Married: <input type="text" class="form-control" name="ever_married" placeholder="Options: Yes or No" required><br>
+    Work Type: <input type="text" class="form-control" name="work_type" placeholder="Options: children,Never_worked,Private,Govt_job,Self-employed" required><br>
+    ResidenceType: <input type="text" class="form-control" name="Residence_type" placeholder="Urban,Rural" required><br>
+    Average Glucose Level: <input type="number" class="form-control" step="any" name="avg_glucose_level" placeholder="Options: Positive values" required><br>
+    BMI(Body Mass Index): <input type="number" class="form-control" step="any" name="bmi" placeholder="Options: Positive values" required><br>
+    Smoking Status: <input type="text" class="form-control" name="smoking_status" placeholder="never smoked,Unknown,formerly smoked,smokes" required><br>
+  </div>
+
+
+
+  <input type="submit" name="Submit" class="btn btn-primary btn-large">
+
+
+</form>
+
+{% endblock %}
