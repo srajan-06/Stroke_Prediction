@@ -30,26 +30,24 @@ def formInfo(request):
 
 
 
-        g1 = {"Male":1,"Female":0,"Other":3}
-        m1 = {"Yes":1,"No":0}
-        w1 = {"children":0,"Never_worked":1,"Private":2,"Govt_job":3,"Self-employed":4}
-        r1 = {"Urban":0,"Rural":1}
-        s1 = {"never smoked":0,"Unknown":1,"formerly smoked":2,"smokes":3}
+        g1 = {"Male":1,"Female":0,"Other":2}
+
 
         temp[0] = g1[temp[0]]
-        temp[4] = m1[temp[4]]
-        temp[5] = w1[temp[5]]
-        temp[6] = r1[temp[6]]
-        temp[9] = s1[temp[9]]
 
         import pandas as pd
         import numpy as np
+        print(temp)
 
         temp[1] = int(temp[1])
         temp[2] = int(temp[2])
         temp[3] = int(temp[3])
+        temp[4] = int(temp[4])
+        temp[5] = int(temp[5])
+        temp[6] = int(temp[6])
         temp[7] = float(temp[7])
         temp[8] = float(temp[8])
+        temp[9] = int(temp[9])
 
         print(temp)
         y_pred = model.predict([temp])
