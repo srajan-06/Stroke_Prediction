@@ -1,0 +1,13 @@
+.uppercase{
+  text-transform: capitalize;
+}
+
+#S{
+  background-color: white;
+}
+
+#I{
+  width: 100px;
+  height: 100px;
+
+}
