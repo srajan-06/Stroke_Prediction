@@ -1,27 +1,78 @@
 {% extends 'explore/explore_base.html' %}
 {% block explore_content %}
 
-<h1>Enter the exact constraints to get better results:</h1><br>
+<h1 class="uppercase">Enter the exact values to get better results:</h1><br>
+
 
 <form id="in" action="{% url 'explore:result' %}" method="POST">
 
   {% csrf_token %}
   <div class="form-group row">
-    Gender: <input type="text" class="form-control" name="gender" placeholder="Options: Male,Female,Other" required><br>
-    Age: <input type="number" class="form-control" step="any" name="age" placeholder="Options: Positive values" required><br>
-    Hypertension: <input type="number" class="form-control" step="any" name="hypertension" placeholder="Options: 0 or 1" required><br>
-    heart Disease: <input type="number" class="form-control" step="any" name="heart_disease" placeholder="Options: 0 or 1" required><br>
-    Ever-Married: <input type="text" class="form-control" name="ever_married" placeholder="Options: Yes or No" required><br>
-    Work Type: <input type="text" class="form-control" name="work_type" placeholder="Options: children,Never_worked,Private,Govt_job,Self-employed" required><br>
-    ResidenceType: <input type="text" class="form-control" name="Residence_type" placeholder="Urban,Rural" required><br>
-    Average Glucose Level: <input type="number" class="form-control" step="any" name="avg_glucose_level" placeholder="Options: Positive values" required><br>
-    BMI(Body Mass Index): <input type="number" class="form-control" step="any" name="bmi" placeholder="Options: Positive values" required><br>
-    Smoking Status: <input type="text" class="form-control" name="smoking_status" placeholder="never smoked,Unknown,formerly smoked,smokes" required><br>
+    <div id="inputs">
+        <div id="inp_gender">
+          <label for="gender">Gender:</label>
+            <select name="gender" id="gender"  class="form-control" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+         </div><br>
+    <strong>Age:</strong> <input type="number" class="form-control" step="any" name="age" placeholder="Enter your Age" required><br>
+    <div id="inp_hypertension">
+      <label for="hypertension">HyperTension:</label>
+        <select name="hypertension" class="form-control" id="hypertension" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+    </div><br>
+    <div id="inp_heart_disease">
+      <label for="heart_disease">Heart Disease:</label>
+        <select name="heart_disease" class="form-control" id="heart_disease" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div><br>
+      <div id="inp_ever_married">
+        <label for="ever_married">Are you Married:</label>
+          <select name="ever_married" class="form-control" id="ever_married" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+      </div><br>
+    <div id="inp_work_type">
+      <label for="work_type">Work Type:</label>
+        <select name="work_type" class="form-control" id="work" required>
+          <option value="2">Private</option>
+          <option value="4">Self-employed</option>
+          <option value="3">Govt_job</option>
+          <option value="1">Never_worked</option>
+          <option value="0">children</option>
+        </select>
+    </div><br>
+    <div id="inp_Residence_type">
+      <label for="Residence_type">Residence:</label>
+        <select name="Residence_type" class="form-control" id="residence" required>
+          <option value="0">Urban</option>
+          <option value="1">Rural</option>
+        </select>
+    </div><br>
+    <strong>Average Glucose Level:</strong><input type="number" class="form-control" step="0.01" name="avg_glucose_level" placeholder="Enter your Average-Glucose-Level" required><br>
+    <strong>BMI:</strong><input type="number" class="form-control" step="0.1" name="bmi" placeholder="Enter your Body-Mass-Index" required><br>
+    <div id="inp_smoking_status">
+      <label for="smoking_status">Smoking History:</label>
+        <select name="smoking_status" class="form-control" id="smoking_status" required>
+          <option value="3">smokes</option>
+          <option value="0">never smoked</option>
+          <option value="2">formly smoked</option>
+          <option value="1">Unknown</option>
+        </select>
+      </div>
+    </div><br>
   </div>
 
 
 
-  <input type="submit" name="Submit" class="btn btn-primary btn-large">
+  <input type="submit" name="submit" value="Predict" id="I" class="btn btn-primary btn-large">
 
 
 </form>
